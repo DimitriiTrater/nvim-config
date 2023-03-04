@@ -67,9 +67,6 @@ endif
 nnoremap <C-s> :w!
 nnoremap <C-S> :w!
 
-nnoremap <C-v> :p
-nnoremap <C-V> :p
-
 nnoremap <C-j> : !python3 %
 
 
