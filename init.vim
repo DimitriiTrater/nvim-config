@@ -38,12 +38,14 @@ call plug#end()
 autocmd VimEnter * NERDTree | wincmd p
 
 " color schemes
- if (has("termguicolors"))
+if (has("termguicolors"))
  set termguicolors
- endif
+endif
  syntax enable
+
 " colorscheme evening
 colorscheme dracula
+
 " open new split panes to right and below
 set splitright
 set splitbelow
@@ -51,14 +53,24 @@ set splitbelow
 " open file in a text by placing text and gf
 nnoremap gf :vert winc f<cr>
 "copies filepath to clipboard by pressing yf
-:nnoremap <silent> yf :let @+=expand('%:p')<CR>
+nnoremap <silent> yf :let @+=expand('%:p')<CR>
 " copies pwd to clipboard: command yd
-:nnoremap <silent> yd :let @+=expand('%:p:h')<CR>
+nnoremap <silent> yd :let @+=expand('%:p:h')<CR>
+
 "Vim jump to the last position when reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
 endif
+
+
+nnoremap <C-s> :w!
+nnoremap <C-S> :w!
+
+nnoremap <C-v> :p
+nnoremap <C-V> :p
+
+nnoremap <C-j> : !python3 %
 
 
 
